@@ -1,10 +1,16 @@
-System Requirements
+**System Requirements**
+```
 Ram	cpu	disk
 8GB	4Core	500+ SSD
-Dependecies
+```
+
+**Dependecies**
+```
 sudo apt update && \
 sudo apt install curl git jq build-essential gcc unzip wget lz4 -y
-Install GO
+```
+
+**Install GO**
 cd $HOME && \
 ver="1.21.3" && \
 wget "https://golang.org/dl/go$ver.linux-amd64.tar.gz" && \
