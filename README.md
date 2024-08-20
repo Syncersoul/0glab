@@ -11,6 +11,7 @@ sudo apt install curl git jq build-essential gcc unzip wget lz4 -y
 ```
 
 **Install GO**
+```
 cd $HOME && \
 ver="1.21.3" && \
 wget "https://golang.org/dl/go$ver.linux-amd64.tar.gz" && \
@@ -20,7 +21,10 @@ rm "go$ver.linux-amd64.tar.gz" && \
 echo "export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin" >> $HOME/.bash_profile && \
 source $HOME/.bash_profile && \
 go version
-Install 0G
+```
+
+**Install 0G**
+```
 git clone -b v0.1.0 https://github.com/0glabs/0g-chain.git
 ./0g-chain/networks/testnet/install.sh
 source .profile
@@ -29,12 +33,15 @@ mv /root/go/bin/0gchaind $HOME/.0gchain/cosmovisor/genesis/bin/
 sudo ln -s $HOME/.0gchain/cosmovisor/genesis $HOME/.0gchain/cosmovisor/current -f
 sudo ln -s $HOME/.0gchain/cosmovisor/current/bin/0gchaind /usr/local/bin/0gchaind -f
 go install cosmossdk.io/tools/cosmovisor/cmd/cosmovisor@v1.5.0
-Create Public Node Service File
+```
+
+**Create Public Node Service File**
+```
 sudo tee /etc/systemd/system/0gchaind.service > /dev/null << EOF
 [Unit]
 Description=0gchaind node service
 After=network-online.target
-
+```
 [Service]
 User=$USER
 ExecStart=$(which cosmovisor) run start
