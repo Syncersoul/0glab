@@ -41,7 +41,6 @@ sudo tee /etc/systemd/system/0gchaind.service > /dev/null << EOF
 [Unit]
 Description=0gchaind node service
 After=network-online.target
-```
 [Service]
 User=$USER
 ExecStart=$(which cosmovisor) run start
@@ -56,10 +55,14 @@ Environment="PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/
 [Install]
 WantedBy=multi-user.target
 EOF
+```
+```
 sudo ln -s $HOME/.0gchain/cosmovisor/genesis $HOME/.0gchain/cosmovisor/current -f
 sudo ln -s $HOME/.0gchain/cosmovisor/current/bin/0gchaind /usr/local/bin/0gchaind -f
 sudo systemctl daemon-reload
 sudo systemctl enable 0gchaind.service
+```
+
 Initiate Node
 0gchaind config chain-id zgtendermint_16600-1
 0gchaind config keyring-backend os
