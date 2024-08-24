@@ -91,13 +91,18 @@ sed -i -e "s/^pruning *=.*/pruning = \"custom\"/" $HOME/.0gchain/config/app.toml
 sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"100\"/" $HOME/.0gchain/config/app.toml
 sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"50\"/" $HOME/.0gchain/config/app.toml
 ```
+
 ```
 sed -i 's|minimum-gas-prices =.*|minimum-gas-prices = "0ua0gi"|g' $HOME/.0gchain/config/app.toml
 sed -i -e "s/prometheus = false/prometheus = true/" $HOME/.0gchain/config/config.toml
 sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.0gchain/config/config.toml
 echo "export G_PORT="16"" >> $HOME/.bash_profile
 ```
+
+```
 source $HOME/.bash_profile
+```
+```
 sed -i.bak -e "s%:1317%:${G_PORT}317%g;
 s%:8080%:${G_PORT}080%g;
 s%:9090%:${G_PORT}090%g;
@@ -111,10 +116,15 @@ s%:6060%:${G_PORT}060%g;
 s%:26656%:${G_PORT}656%g;
 s%^external_address = \"\"%external_address = \"$(wget -qO- eth0.me):${G_PORT}656\"%;
 s%:26660%:${G_PORT}660%g" $HOME/.0gchain/config/config.toml
-Start Node
+```
+**Start Node**
+```
 sudo systemctl daemon-reload
 sudo systemctl restart 0gchaind
-Check logs
+```
+
+**Check logs**
+
 sudo journalctl -u 0gchaind.service -f --no-hostname -o cat
 Ctrl+C
 Ignore if you are receiving "Reconnecting peers...", You node is syncing for the next hours
