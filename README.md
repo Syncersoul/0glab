@@ -124,9 +124,10 @@ sudo systemctl restart 0gchaind
 ```
 
 **Check logs**
-
+```
 sudo journalctl -u 0gchaind.service -f --no-hostname -o cat
-Ctrl+C
+```
+```
 Ignore if you are receiving "Reconnecting peers...", You node is syncing for the next hours
 Create/Recover Wallet
 Recover: if you already have a wallet
@@ -136,7 +137,7 @@ Create new wallet: if this is your first time
 0gchaind keys add WALLET_NAME --eth
 Export EVM public address and private key of the 0G wallet
 replace WALLET_NAME
-
+```
 Public address:
 
 echo "0x$(0gchaind debug addr $(0gchaind keys show WALLET_NAME -a) | grep hex | awk '{print $3}')"
