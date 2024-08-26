@@ -133,8 +133,13 @@ Create/Recover Wallet
 Recover: if you already have a wallet
 Replace WALLET_NAME
 0gchaind keys add WALLET_NAME --eth --recover
-Create new wallet: if this is your first time
+```
+
+**Create new wallet: if this is your first time**
+```
 0gchaind keys add WALLET_NAME --eth
+```
+
 Export EVM public address and private key of the 0G wallet
 replace WALLET_NAME
 ```
@@ -146,10 +151,14 @@ Private key:
 Check if your node is synced (if you only get FALSE you can continue creating a validator)
 0gchaind status | jq
 image
+```
 
-Get Faucet
+**Get Faucet**
+```
 Get faucet tokens here. You will receive it with EVM address
 https://faucet.0g.ai/
+```
+
 Create Validator
 Replace your NODE_NAME & WALLET_NAME
 0gchaind tx staking create-validator \
