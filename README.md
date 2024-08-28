@@ -140,7 +140,7 @@ Replace WALLET_NAME
 0gchaind keys add WALLET_NAME --eth
 ```
 
-Export EVM public address and private key of the 0G wallet
+**Export EVM public address and private key of the 0G wallet**
 replace WALLET_NAME
 ```
 Public address:
@@ -159,7 +159,8 @@ Get faucet tokens here. You will receive it with EVM address
 https://faucet.0g.ai/
 ```
 
-Create Validator
+**Create Validator**
+```
 Replace your NODE_NAME & WALLET_NAME
 0gchaind tx staking create-validator \
   --amount=1000000ua0gi \
@@ -176,7 +177,9 @@ Replace your NODE_NAME & WALLET_NAME
   --details="0xMoei Community" \
   --node=http://localhost:16657 \
   -y
-Delegate tokens
+```
+
+**Delegate tokens**
 0gchaind tx staking delegate $(0gchaind keys show WALLET_NAME --bech val -a) 1000000ua0gi --from WALLET_NAME -y
 Useful commands
 Unjail Node (if your node is jailed)
