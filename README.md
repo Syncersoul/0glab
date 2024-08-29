@@ -180,10 +180,15 @@ Replace your NODE_NAME & WALLET_NAME
 ```
 
 **Delegate tokens**
+```
 0gchaind tx staking delegate $(0gchaind keys show WALLET_NAME --bech val -a) 1000000ua0gi --from WALLET_NAME -y
-Useful commands
-Unjail Node (if your node is jailed)
+```
+
+**Unjail Node (if your node is jailed)**
+```
 0gchaind tx slashing unjail --from WALLET_NAME --gas=500000 --gas-prices=99999neuron -y
+```
+
 Active Validators list
 0gchaind q staking validators -o json --limit=1000 \
 | jq '.validators[] | select(.status=="BOND_STATUS_BONDED")' \
