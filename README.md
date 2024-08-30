@@ -189,12 +189,15 @@ Replace your NODE_NAME & WALLET_NAME
 0gchaind tx slashing unjail --from WALLET_NAME --gas=500000 --gas-prices=99999neuron -y
 ```
 
-Active Validators list
+**Active Validators list**
+```
 0gchaind q staking validators -o json --limit=1000 \
 | jq '.validators[] | select(.status=="BOND_STATUS_BONDED")' \
 | jq -r '.tokens + " - " + .description.moniker' \
 | sort -gr | nl
-inActive Validators list
+```
+
+**inActive Validators list**
 0gchaind q staking validators -o json --limit=1000 \
 | jq '.validators[] | select(.status=="BOND_STATUS_UNBONDED")' \
 | jq -r '.tokens + " - " + .description.moniker' \
