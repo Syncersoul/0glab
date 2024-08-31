@@ -198,11 +198,15 @@ Replace your NODE_NAME & WALLET_NAME
 ```
 
 **inActive Validators list**
+```
 0gchaind q staking validators -o json --limit=1000 \
 | jq '.validators[] | select(.status=="BOND_STATUS_UNBONDED")' \
 | jq -r '.tokens + " - " + .description.moniker' \
 | sort -gr | nl
-Wallet Balance
+```
+
+**Wallet Balance**
+
 0gchaind q bank balances $(0gchaind keys show WALLET_NAME -a)
 Your Validator Status
 0gchaind q staking validator $(0gchaind keys show WALLET_NAME --bech val -a)
