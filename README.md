@@ -206,10 +206,14 @@ Replace your NODE_NAME & WALLET_NAME
 ```
 
 **Wallet Balance**
-
+```
 0gchaind q bank balances $(0gchaind keys show WALLET_NAME -a)
-Your Validator Status
+```
+
+**Your Validator Status**
+```
 0gchaind q staking validator $(0gchaind keys show WALLET_NAME --bech val -a)
+``` 
 Delete Node
 sudo systemctl stop 0gchaind.service
 sudo systemctl disable 0gchaind.service
