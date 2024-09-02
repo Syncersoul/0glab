@@ -213,13 +213,17 @@ Replace your NODE_NAME & WALLET_NAME
 **Your Validator Status**
 ```
 0gchaind q staking validator $(0gchaind keys show WALLET_NAME --bech val -a)
-``` 
-Delete Node
+```
+
+**Delete Node**
+```
 sudo systemctl stop 0gchaind.service
 sudo systemctl disable 0gchaind.service
 sudo rm /etc/systemd/system/0gchaind.service
 rm -rf $HOME/.0gchain $HOME/0g-chain
+```
+
 Check validators list in explorer
 https://explorer.coinhunterstr.com/0G-Newton/staking
 
--------Thanks HerculesNode for the detailed guide-------
+
